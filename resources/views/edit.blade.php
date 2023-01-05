@@ -39,8 +39,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <div><img src="{{url('blog/images/'.$users->profile_pic)}}" alt="profile" style="width: 50px;height:50px;"></div>
-                                <input type="file" placeholder="profile_pic" id="profile_pic"  value="{{$users->profile_pic}}" class="form-control"
-                                    name="profile_pic" required>
+                                <input type="file" id="profile_pic"  class="form-control"  name="profile_pic" >
                                 @if ($errors->has('profile_pic'))
                                 <span class="text-danger">{{ $errors->first('profile_pic') }}</span>
                                 @endif

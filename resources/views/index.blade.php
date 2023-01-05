@@ -10,7 +10,7 @@
    
         <h3>User Manage</h3>
 
-        <table class="table table-bordered">
+        <table id="example1" class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">id</th>
@@ -31,8 +31,19 @@
                     <td>  <img src="{{url('blog/images/'.$data->profile_pic)}}" alt="profile" style="width: 50px;height:50px;"></td>
                     <td><a href="{{ url('user_detail/'. $data->id)}}" class="btn btn-info btn-sm">View</a>
                         <a href="{{ url('user_edit/'. $data->id)}}" class="btn btn-success btn-sm">Edit</a>
-                        
-                        <button type="submit" name="delete" onclick="return confirm('Are you sure want to delete?');" id='btn_delete' value="{{$data->id}}" class="btn btn-danger btn-sm">Delete</button>
+                        <form id="delete-form-{{ $data->id }}" method="post" action="{{ url('user_delete/'.$data->id) }}" style="display: none">
+                        {{ csrf_field() }}
+                        {{ method_field('POST') }}
+                      </form>
+                        <button type="submit" name="delete" onclick=" if(confirm('Are you sure, You Want to delete this?'))
+                          {
+                            event.preventDefault();
+                            document.getElementById('delete-form-{{ $data->id }}').submit();
+                          }
+                          else{
+                            event.preventDefault();
+                          }"  id='btn_delete' value="{{$data->id}}" class="btn btn-danger btn-sm">Delete</button>
+                     
                     </td>
                 </tr>
                 @endforeach
@@ -42,7 +53,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
+<!-- <script>
 $(document).ready(function(){
   $("#btn_delete").click(function(){
     
@@ -59,5 +70,5 @@ $(document).ready(function(){
     }});
   });
 });
-</script>
+</script> -->
 @endsection
