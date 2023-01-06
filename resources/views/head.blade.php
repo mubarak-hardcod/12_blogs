@@ -106,6 +106,12 @@
           <li><a href="{{ url('user_create/')}}" class="list-group-item list-group-item-action bg-light ">Add User </a></li>
           <li><a href="{{ url('user_index/')}}" class="list-group-item list-group-item-action bg-light ">User list</a></li>
         </ul>
+        <a href="#home7" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse"
+          aria-expanded="false"> Categories</a>
+        <ul class="collapse list-unstyled menu" id="home7">
+          <li><a href="{{ url('categories_create/')}}" class="list-group-item list-group-item-action bg-light ">Add Categories </a></li>
+          <li><a href="{{ url('categories_index/')}}" class="list-group-item list-group-item-action bg-light ">Categories list</a></li>
+        </ul>
         
       </div>
     </div>
