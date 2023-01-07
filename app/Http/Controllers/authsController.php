@@ -1,16 +1,21 @@
 <?php
+
 namespace App\Http\Controllers;
+
+use App\Models\auths;
 use Illuminate\Http\Request;
-use Illuminate\blog\images;
+use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-class CustomAuthController extends Controller
+use Illuminate\blog\images;
+
+
+
+class authsController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
+        return view('blog_auth.login');
     }  
       
     public function customLogin(Request $request)
@@ -31,7 +36,7 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
-        return view('auth.registration');
+        return view('blog_auth.register');
     }
       
     public function customRegistration(Request $request)
@@ -39,13 +44,16 @@ class CustomAuthController extends Controller
             $request->validate([
                 'name' => 'required',
                 'email' => 'required|email|unique:users',
-                'password' => 'required|min:6',
+                'password' => 'required|min:6|confirmed',
                 'profile_pic' => 'required|image|mimes:png,jpg,jpeg',
                 'phone_number' => 'required|numeric|digits:10',
               ]);
-          
-              if($request->hasFile(('profile_pic'))){
+      
+  
+              if($request->profile_pic){
                 $filenameWithExt = $request->file('profile_pic')->getClientOriginalName();
+
+            
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                 $extension = $request->file('profile_pic')->getClientOriginalExtension();
                 $fileNameToStore = $filename.'_'.time().'.'.$extension;
@@ -55,18 +63,22 @@ class CustomAuthController extends Controller
               {
                   $fileNameToStore = 'noimage.jpg';
               }
-              $_users = new User;
+
+              $_users = new auths;
               $_users->name = $request->name;
               $_users->email = $request->email;
-              $_users->password = Hash::make( $request->password);
+              $_users->password = $request->password;
               $_users->phone_number = $request->phone_number;
               $_users->profile_pic = $fileNameToStore;
               $_users->save();
 
+          
+
               return redirect("login")->withSuccess('You have signed-in');
         }
     
-  
+        
+          
     
     public function dashboard()
     {

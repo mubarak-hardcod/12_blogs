@@ -4,6 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\CustomeUserController;
 use App\Http\Controllers\categoriesController;
+use App\Http\Controllers\tagController;
+use App\Http\Controllers\postController;
+use App\Http\Controllers\userController;
+use App\Http\Controllers\blogController;
+use App\Http\Controllers\authsController;
+
+
+
+
+
 
 
 
@@ -28,6 +38,13 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
+Route::get('authslogin', [authsController::class, 'index'])->name('authslogin');
+Route::post('authscustom-login', [authsController::class, 'customLogin'])->name('authslogin.custom'); 
+Route::get('authsregistration', [authsController::class, 'registration'])->name('authsregister-user');
+Route::post('authscustom-registration', [authsController::class, 'customRegistration'])->name('authsregister.custom'); 
+Route::get('authssignout', [authsController::class, 'signOut'])->name('authssignout');
+
+
 
 
 
@@ -49,8 +66,30 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('categories_update/{id}', [categoriesController::class,'update'])->name('categories_update');
     Route::post('categories_delete/{id}', [categoriesController::class,'destroy'])->name('catgeories_delete');
 
+    Route::get('tag_index', [tagController::class,'index'])->name('tag_index');
+    Route::get('tag_create', [tagController::class,'create'])->name('tag_create');
+    Route::post('tag_create', [tagController::class,'store'])->name('tag_create'); 
+    Route::get('tag_detail/{id}', [tagController::class,'show'])->name('tag_detail');
+    Route::get('tag_edit/{id}', [tagController::class,'edit'])->name('tag_edit');
+    Route::post('tag_update/{id}', [tagController::class,'update'])->name('tag_update');
+    Route::post('tag_delete/{id}', [tagController::class,'destroy'])->name('tag_delete');
+
+    Route::get('post_index', [postController::class,'index'])->name('post_index');
+    Route::get('post_create', [postController::class,'create'])->name('post_create');
+    Route::post('post_create', [postController::class,'store'])->name('post_create'); 
+    Route::get('post_detail/{id}', [postController::class,'show'])->name('post_detail');
+    Route::get('post_edit/{id}', [postController::class,'edit'])->name('post_edit');
+    Route::post('post_update/{id}', [postController::class,'update'])->name('post_update');
+    Route::post('post_delete/{id}', [postController::class,'destroy'])->name('post_delete');
+
+   
+
    
 });
+
+
+
+
 
 
 
