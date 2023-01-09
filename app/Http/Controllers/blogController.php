@@ -12,16 +12,21 @@ class blogController extends Controller
   
     public function blog_main()
     {
-        $posts = posts::all();
-        return view('blog.blog',compact('posts'));
-        
+        $posts = posts::where('status',1)->orderBy('created_at','DESC')->paginate(3);
+        return view('blog.blog',compact('posts'));        
     }
 
     
-    public function create()
-    {
-        //
-    }
+    
+    
+        public function postslug(posts $postslug)
+        {
+       
+     
+            
+            return view('blog.post', compact('postslug'));
+        }
+    
 
   
     public function store(Request $request)

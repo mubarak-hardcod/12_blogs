@@ -20,12 +20,7 @@ class CustomeUserController extends Controller
       
       return view('dash');
      
-  }
-   
-      
-
-
-    public function index()
+  }    public function index()
     {
       
         $users = User::all();
@@ -33,20 +28,14 @@ class CustomeUserController extends Controller
        
    
         
-    }
-
-   
+    }   
     public function create()
     {
      
         $users = User::all();
-        return view('create');
-       
-  
-        
+        return view('create');        
       
-    }
-    
+    }   
    
 
   public function store(Request $request)
@@ -79,34 +68,20 @@ class CustomeUserController extends Controller
     $_users->save();
     return redirect("user_index")->withSuccess('You have created successfully');
 
-
-
-  }
-     
+  }  
   
     public function show($id)
-    {
-
-     
+    {     
         $users = User::findOrFail($id);
-        return view('show',compact('users'));
-       
- 
-       
-    }
-
-   
-    public function edit($id)
-    {
+        return view('show',compact('users'));      
+    } 
+    public function edit($id)   {
       
         $users = User::findOrFail($id);
         return view('edit',compact('users'));       
-    
-       
+         
     }    
-    
-
-  public function update(Request $request, $id)
+      public function update(Request $request, $id)
   {
 
     $request->validate([
@@ -123,7 +98,7 @@ class CustomeUserController extends Controller
         $fileNameToStore = $filename.'_'.time().'.'.$extension;
         $img=$request->profile_pic->move(public_path().'/blog/images/',$fileNameToStore);
         
-        // $path = $request->file('profile_pic')->storeAs(public_path().'/blog/images/', $fileNameToStore);
+       
     } else
     {
         $fileNameToStore = 'noimage.jpg';

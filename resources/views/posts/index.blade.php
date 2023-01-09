@@ -18,7 +18,7 @@
                     <th scope="col">Subtitle</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Image</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Created At</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -29,12 +29,12 @@
                     <td>{{$data->title}}</td>
                     <td>{{$data->subtitle}}</td>
                     <td>{{$data->slug}}</td>
-                    <td>  <img src="{{url('blog/images/'.$data->image)}}" alt="profile" style="width: 50px;height:50px;"></td>
-                    <td>{{$data->status}}</td>
+                    <td> <img src="{{url('blog/images/'.$data->image)}}" alt="profile" style="width: 50px;height:50px;"></td>
+                    <td> {{$data->created_at}}</td>
 
-                    <td><a href="" class="btn btn-info btn-sm">View</a>
-                        <a href="" class="btn btn-success btn-sm">Edit</a>
-                        <form id="delete-form-{{ $data->id }}" method="post" action="" style="display: none">
+                    <!-- <a href="{{url('post_detail/'.$data->id)}}" class="btn btn-info btn-sm">View</a> -->
+                    <td> <a href="{{url('post_edit/'.$data->id)}}" class="btn btn-success btn-sm">Edit</a>
+                        <form id="delete-form-{{ $data->id }}" method="post" action="{{ url('post_delete/'.$data->id) }}" style="display: none">
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
                       </form>
@@ -46,7 +46,6 @@
                           else{
                             event.preventDefault();
                           }"  id='btn_delete' value="{{$data->id}}" class="btn btn-danger btn-sm">Delete</button>
-                     
                     </td>
                 </tr>
                 @endforeach

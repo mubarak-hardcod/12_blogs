@@ -6,7 +6,6 @@ use App\Http\Controllers\CustomeUserController;
 use App\Http\Controllers\categoriesController;
 use App\Http\Controllers\tagController;
 use App\Http\Controllers\postController;
-use App\Http\Controllers\userController;
 use App\Http\Controllers\blogController;
 use App\Http\Controllers\authsController;
 
@@ -28,7 +27,6 @@ use App\Http\Controllers\authsController;
 |
 */
 
-Route::get('/', function () {return view('welcome');});
 
 Route::get('dashboard1', [CustomAuthController::class, 'dashboard1']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -39,11 +37,16 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 
 Route::get('authslogin', [authsController::class, 'index'])->name('authslogin');
-Route::post('authscustom-login', [authsController::class, 'customLogin'])->name('authslogin.custom'); 
-Route::get('authsregistration', [authsController::class, 'registration'])->name('authsregister-user');
+Route::any('authslogin_custom', [authsController::class, 'customLogin'])->name('authslogin_custom'); 
+Route::get('authsregister-user', [authsController::class, 'registration'])->name('authsregister-user');
 Route::post('authscustom-registration', [authsController::class, 'customRegistration'])->name('authsregister.custom'); 
 Route::get('authssignout', [authsController::class, 'signOut'])->name('authssignout');
+Route::get('resetpassword', [authsController::class, 'resetpassword'])->name('resetpassword');
 
+
+Route::get('/', [blogController::class,'blog_main']);
+
+Route::get('post/{slug}', [blogController::class,'postslug'])->name('post');
 
 
 

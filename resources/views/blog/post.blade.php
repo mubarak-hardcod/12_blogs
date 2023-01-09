@@ -1,6 +1,6 @@
 @extends('blog/app')
 
-@section('bg-img',asset('blog/img/post-bg.jpg'))
+@section('bg-img',asset('user/img/post-bg.jpg'))
 
 @section('title', $postslug->title)
 
@@ -23,21 +23,22 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
               <small>Created at {{ $postslug->created_at }}</small>
-              @foreach ($postslug->categories as $category)
+              @foreach ($postslug->category_id as $category)
               <small class="pull-right" style="margin-right: 20px">  
-                <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
+                <a href="">{{ $category->name }}</a>
               </small>
               @endforeach
             <p>{!! htmlspecialchars_decode($postslug -> body) !!} </p>
 
              {{-- Tag clouds --}}
                 <h3>Tag Clouds</h3>
-                @foreach ($postslug->tags as $tag)
-                <a href="{{ route('tag',$tag->slug) }}"><small class="pull-left" style="margin-right: 20px;border-radius: 5px;border: 1px solid gray;padding: 5px;">  
+                @foreach ($postslug->tag_id as $tag)
+                <a href=""><small class="pull-left" style="margin-right: 20px;border-radius: 5px;border: 1px solid gray;padding: 5px;">  
                                     {{ $tag->name }}
                                 </small></a>
                 @endforeach
             <br><hr>
+            
             <!-- Facebook Comment Link -->
              <div class="fb-comments" data-href="{{ Request::url() }}" data-numposts="10"></div>
           </div>

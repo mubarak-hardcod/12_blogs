@@ -27,11 +27,11 @@ class authsController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('/')
                         ->withSuccess('Signed in');
         }
   
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("authslogin")->withSuccess('Login details are not valid');
     }
 
     public function registration()
@@ -67,14 +67,14 @@ class authsController extends Controller
               $_users = new auths;
               $_users->name = $request->name;
               $_users->email = $request->email;
-              $_users->password = $request->password;
+              $_users->password = Hash::make($request->password);
               $_users->phone_number = $request->phone_number;
               $_users->profile_pic = $fileNameToStore;
               $_users->save();
 
           
 
-              return redirect("login")->withSuccess('You have signed-in');
+              return redirect("authslogin")->withSuccess('You have signed-in');
         }
     
         
@@ -93,5 +93,9 @@ class authsController extends Controller
         Auth::logout();
   
         return Redirect('login')->withErrors('You are sucessfully Log Out');
+    }
+
+    public function resetpassword() {      
+        return view('blog_auth.passwords.email');
     }
 }

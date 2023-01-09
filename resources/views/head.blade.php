@@ -118,6 +118,12 @@
           <li><a href="{{ url('tag_create/')}}" class="list-group-item list-group-item-action bg-light ">Add Tag </a></li>
           <li><a href="{{ url('tag_index/')}}" class="list-group-item list-group-item-action bg-light ">Tag list</a></li>
         </ul>
+        <a href="#home9" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse"
+          aria-expanded="false"> Post</a>
+        <ul class="collapse list-unstyled menu" id="home9">
+          <li><a href="{{ url('post_create/')}}" class="list-group-item list-group-item-action bg-light ">Add Post </a></li>
+          <li><a href="{{ url('post_index/')}}" class="list-group-item list-group-item-action bg-light ">Post list</a></li>
+        </ul>
         
       </div>
     </div>
