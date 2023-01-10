@@ -14,13 +14,13 @@
         @foreach($posts as $post)
 
             <div class="post-preview">
-              <a href="{{ route('post',$post->slug) }}">
+              <a href="{{ url('post/'.$post->slug) }}">
                 <h3 class="post-title">
                   {{ $post->title }}
                 </h3>
                 <h4 class="post-subtitle">
                 {{ $post->subtitle }}
-                </h4>
+
               </a>
               <p class="post-meta">Posted by
                 <a href="#">User</a>
@@ -31,7 +31,7 @@
 
           <hr>
           <!-- Pager -->
-          <div class="clearfix">
+          <div class="clearfix" >
             {{ $posts->links() }}
           </div>
         </div>

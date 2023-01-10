@@ -45,7 +45,6 @@ Route::get('resetpassword', [authsController::class, 'resetpassword'])->name('re
 
 
 Route::get('/', [blogController::class,'blog_main']);
-
 Route::get('post/{slug}', [blogController::class,'postslug'])->name('post');
 
 
