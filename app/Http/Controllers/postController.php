@@ -93,7 +93,6 @@ class postController extends Controller
 
     public function update(Request $request, $id)
     {
-
         // $request->validate([
         //     'name' => 'required',
         //     'email' => 'required|email',
@@ -119,11 +118,9 @@ class postController extends Controller
         $_posts->category_id = json_encode($category);
         $tag = $request->tag_id;
         $_posts->tag_id = json_encode($tag);
-        $_posts->status = $request->status;
-       
+        $_posts->status = $request->status;      
 
         if ($request->hasFile('image')) {
-
             if ($_posts->image != 'no_image.png') {
                 Storage::delete('blog/images/' . $_posts->image);
             }
@@ -132,8 +129,6 @@ class postController extends Controller
         $_posts->save();
         return redirect("post_index")->withSuccess('You have updated successfully');
     }
-
-
     public function destroy(posts $posts, $id)
     {
         $data = posts::find($id);

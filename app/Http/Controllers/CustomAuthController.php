@@ -64,9 +64,7 @@ class CustomAuthController extends Controller
               $_users->save();
 
               return redirect("login")->withSuccess('You have signed-in');
-        }
-    
-  
+        }  
     
     public function dashboard()
     {
@@ -74,8 +72,7 @@ class CustomAuthController extends Controller
             return view('dashboard'); 
         }  
         return redirect("login")->withErrors('You are not allowed to access');
-    }
-    
+    }    
     public function signOut() {
         Session::flush();
         Auth::logout();

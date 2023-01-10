@@ -17,7 +17,7 @@ class blogController extends Controller
     public function blog_main()
     {
         $posts = posts::where('status',1)->orderBy('created_at','DESC')->paginate(3);
-        return view('blog.blog',compact('posts'));        
+        return view('blog.blog',compact('posts'));    
     }
 
     
@@ -58,18 +58,15 @@ class blogController extends Controller
     {
         //
     }
-
    
     public function show($id)
     {
         //
     }
-
     public function edit($id)
     {
         //
     }
-
     public function update(Request $request, $id)
     {
         //

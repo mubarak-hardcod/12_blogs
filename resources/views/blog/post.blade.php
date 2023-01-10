@@ -2,9 +2,9 @@
 
 @section('bg-img',asset('user/img/post-bg.jpg'))
 
-@section('title', 'post')
+@section('title', $postslug->title)
 
-@section('subheading','post')
+@section('subheading',$postslug->subtitle)
 
 @section('main-content')
 

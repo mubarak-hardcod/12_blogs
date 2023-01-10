@@ -10,24 +10,6 @@ use App\Http\Controllers\blogController;
 use App\Http\Controllers\authsController;
 
 
-
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
 Route::get('dashboard1', [CustomAuthController::class, 'dashboard1']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
@@ -46,8 +28,6 @@ Route::get('resetpassword', [authsController::class, 'resetpassword'])->name('re
 
 Route::get('/', [blogController::class,'blog_main']);
 Route::get('post/{slug}', [blogController::class,'postslug'])->name('post');
-
-
 
 
 Route::group(['middleware' => ['auth']], function () { 
@@ -82,9 +62,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('post_detail/{id}', [postController::class,'show'])->name('post_detail');
     Route::get('post_edit/{id}', [postController::class,'edit'])->name('post_edit');
     Route::post('post_update/{id}', [postController::class,'update'])->name('post_update');
-    Route::post('post_delete/{id}', [postController::class,'destroy'])->name('post_delete');
-
-   
+    Route::post('post_delete/{id}', [postController::class,'destroy'])->name('post_delete');  
 
    
 });

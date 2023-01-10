@@ -58,7 +58,6 @@
                                 <label>Select Category</label>
                                 <select class="form-control select2" multiple="" data-placeholder="Select a category" style="width: 100%;" tabindex="-1" aria-hidden="true" name="category_id[]">
                                   @foreach ($datas1 as $category)
-
                                     <option value="{{ $category->id }}"  @foreach ($b as $cat) @if ($category->id == $cat) selected  @endif  @endforeach>{{ $category->name }}</option>
                                   @endforeach
                                 </select>
@@ -71,9 +70,7 @@
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-success ">Create</button>
                              <a class="btn btn-primary  " href="{{ url('post_index/')}}" role="button" >Back </a>
-
-                            </div>
-                            
+                            </div>                            
                         </form>
                     </div>
                 </div>

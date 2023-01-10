@@ -21,13 +21,10 @@ class CustomeUserController extends Controller
       return view('dash');
      
   }    public function index()
-    {
-      
+    {      
         $users = User::all();
         return view('index',compact('users'));
-       
-   
-        
+               
     }   
     public function create()
     {
@@ -67,9 +64,7 @@ class CustomeUserController extends Controller
     $_users->profile_pic = $fileNameToStore;
     $_users->save();
     return redirect("user_index")->withSuccess('You have created successfully');
-
-  }  
-  
+  }   
     public function show($id)
     {     
         $users = User::findOrFail($id);
@@ -81,7 +76,7 @@ class CustomeUserController extends Controller
         return view('edit',compact('users'));       
          
     }    
-      public function update(Request $request, $id)
+          public function update(Request $request, $id)
   {
 
     $request->validate([

@@ -78,8 +78,8 @@
   </style>
 
   <script>
-    jQuery(document).ready(function ($) {
-      $("#menu-toggle").click(function (e) {
+    jQuery(document).ready(function($) {
+      $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
       });
@@ -100,31 +100,27 @@
       <div class="sidebar-heading"></div>
       <div class="list-group list-group-flush">
         <a href="{{ url('dashboard/')}}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#home6" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse"
-          aria-expanded="false"> User</a>
+        <a href="#home6" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse" aria-expanded="false"> User</a>
         <ul class="collapse list-unstyled menu" id="home6">
           <li><a href="{{ url('user_create/')}}" class="list-group-item list-group-item-action bg-light ">Add User </a></li>
           <li><a href="{{ url('user_index/')}}" class="list-group-item list-group-item-action bg-light ">User list</a></li>
         </ul>
-        <a href="#home7" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse"
-          aria-expanded="false"> Categories</a>
+        <a href="#home7" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse" aria-expanded="false"> Categories</a>
         <ul class="collapse list-unstyled menu" id="home7">
           <li><a href="{{ url('categories_create/')}}" class="list-group-item list-group-item-action bg-light ">Add Categories </a></li>
           <li><a href="{{ url('categories_index/')}}" class="list-group-item list-group-item-action bg-light ">Categories list</a></li>
         </ul>
-        <a href="#home8" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse"
-          aria-expanded="false"> Tag</a>
+        <a href="#home8" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse" aria-expanded="false"> Tag</a>
         <ul class="collapse list-unstyled menu" id="home8">
           <li><a href="{{ url('tag_create/')}}" class="list-group-item list-group-item-action bg-light ">Add Tag </a></li>
           <li><a href="{{ url('tag_index/')}}" class="list-group-item list-group-item-action bg-light ">Tag list</a></li>
         </ul>
-        <a href="#home9" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse"
-          aria-expanded="false"> Post</a>
+        <a href="#home9" class="list-group-item list-group-item-action bg-light dropdown-toggle" data-toggle="collapse" aria-expanded="false"> Post</a>
         <ul class="collapse list-unstyled menu" id="home9">
           <li><a href="{{ url('post_create/')}}" class="list-group-item list-group-item-action bg-light ">Add Post </a></li>
           <li><a href="{{ url('post_index/')}}" class="list-group-item list-group-item-action bg-light ">Post list</a></li>
         </ul>
-        
+
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -140,8 +136,7 @@
         <!-- <button class="btn btn-primary" id="menu-toggle">Hide Menu </button> -->
 
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -178,9 +173,9 @@
 
 
       <div>
-        
-          @yield('content')
-       
+
+        @yield('content')
+
       </div>
     </div>
 
