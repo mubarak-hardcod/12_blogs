@@ -43,7 +43,7 @@
                                 <span class="text-danger">{{ $errors->first('image') }}</span>
                                 @endif
                             </div>
-                           
+                            
                             <div class="form-group mb-3">
                                 <label>Select Tags</label>
                                 <select class="form-control select2" multiple="" data-placeholder="Select a Tag" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tag_id[]">

@@ -13,15 +13,11 @@ class tagController extends Controller
         $datas = tag::all();
         return view('tag.index',compact('datas'));
        
-    }
-
-   
+    }   
     public function create()
-    {
-        
+    {        
         $datas = tag::all();
-        return view('tag.create');
-    }
+        return view('tag.create');    }
 
    
     public function store(Request $request)

@@ -31,8 +31,7 @@
                 <tr>
                     <td>Body</td>
                     <td>{{$datas->body}}</td>                    
-                </tr>   
-                          
+                </tr>                            
                 <tr>
                     <td>Image</td>
                     <td><img src="{{url('blog/images/'.$datas->image )}}" alt="" style="width: 70px;"></td>                    

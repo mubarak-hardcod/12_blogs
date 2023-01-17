@@ -38,7 +38,7 @@ class categoriesController extends Controller
           $_categories->name = $request->name;
           $_categories->slug = $request->slug;         
           $_categories->save();
-          return redirect("categories_index")->withSuccess('You have created successfully');
+          return redirect("cate_manage")->withSuccess('You have created successfully');
     }   
     public function show($id)
     {
@@ -59,19 +59,19 @@ class categoriesController extends Controller
             'name' => 'required',
             'slug' => 'required',
             
-          ]);          
-          $_users = categories::find($id);
-          $_users->name = $request->name;
-          $_users->slug = $request->slug;          
-      
-            $_users->save();
-            return redirect("categories_index")->withSuccess('You have updated successfully');
+        ]);          
+        $_users = categories::find($id);
+        $_users->name = $request->name;
+        $_users->slug = $request->slug;
+             
+        $_users->save();
+        return redirect("cate_manage")->withSuccess('You have updated successfully');
     }  
     public function destroy(categories $categories,$id)
     {
         $data = categories::find($id);       
         $data->delete();     
-        return redirect(route("categories_index"))->withSuccess('Deleted successfully');
+        return redirect(route("cate_manage"))->withSuccess('Deleted successfully');
     }   
 }
 

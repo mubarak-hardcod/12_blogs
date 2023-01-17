@@ -8,6 +8,8 @@ use App\Http\Controllers\tagController;
 use App\Http\Controllers\postController;
 use App\Http\Controllers\blogController;
 use App\Http\Controllers\authsController;
+use App\Http\Controllers\MailController;
+
 
 
 Route::get('dashboard1', [CustomAuthController::class, 'dashboard1']); 
@@ -28,6 +30,12 @@ Route::get('resetpassword', [authsController::class, 'resetpassword'])->name('re
 
 Route::get('/', [blogController::class,'blog_main']);
 Route::get('post/{slug}', [blogController::class,'postslug'])->name('post');
+
+Route::get('txt_mail', [MailController::class,'txt_mail'])->name('txt_mail');
+Route::get('html_mail', [MailController::class,'html_mail'])->name('html_mail');
+Route::get('attached_mail', [MailController::class,'attached_mail'])->name('attached_mail');
+
+
 
 
 Route::group(['middleware' => ['auth']], function () { 

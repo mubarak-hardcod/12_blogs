@@ -17,7 +17,6 @@ class postController extends Controller
         foreach ($datas as $data) {
             $a = json_decode($data->tag_id);
         }
-
         return view('posts.index', compact('datas', 'a'));
     }
 
